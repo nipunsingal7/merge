@@ -169,3 +169,33 @@ return 0;
 }
 
 //END OF MAIN PROGRAM
+
+
+
+int hotel::check(int r)
+{
+
+int flag=0;
+
+ifstream fin("Record.dat",ios::in);
+
+while(!fin.eof())
+{
+
+fin.read((char*)this,sizeof(hotel));
+if(room_no==r)
+{
+
+flag=1;
+break;
+
+}
+
+}
+
+fin.close();
+return(flag);
+
+}
+
+
