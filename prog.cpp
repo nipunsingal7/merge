@@ -93,3 +93,55 @@ getch();
 
 
 //END OF MENU FUNCTION
+
+//FUNCTION FOR BOOKING OF ROOM
+
+
+void hotel::add()
+{
+
+  system("cls");
+int r,flag;
+ofstream fout("Record.dat",ios::app);
+
+cout<<"\n Enter Customer Detalis";
+cout<<"\n ----------------------";
+cout<<"\n\n Room no: ";
+cout<<"\n Total no. of Rooms - 50";
+cout<<"\n Ordinary Rooms from 1 - 30";
+cout<<"\n Luxuary Rooms from 31 - 45";
+cout<<"\n Royal Rooms from 46 - 50";
+cout <<"\n Enter The Room no. you want to stay in :- "<<endl;
+cin>>r;
+
+flag=check(r);
+
+if(flag)
+cout<<"\n Sorry..!!!Room is already booked";
+
+else
+{
+
+room_no=r;
+cout<<" Name: ";
+cin>>name;
+cout<<" Address: ";
+cin>>address;
+cout<<" Phone No: ";
+cin>>phone;
+
+fout.write((char*)this,sizeof(hotel));
+cout<<"\n Room is booked...!!!";
+
+}
+
+cout<<"\n Press any key to continue.....!!";
+
+getch();
+fout.close();
+
+}
+
+
+//END OF BOOKING FUNCTION
+
