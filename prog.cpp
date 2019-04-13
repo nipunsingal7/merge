@@ -145,3 +145,51 @@ fout.close();
 
 //END OF BOOKING FUNCTION
 
+//FUNCTION FOR DISPLAYING A PURTICULAR CUSTOMER`S RECORD
+
+
+
+
+
+void hotel::display()
+{
+
+  system("cls");
+
+ifstream fin("Record.dat",ios::in);
+int r,flag;
+
+cout<<"\n Enter room no. for a particular customer`s details :- "<<endl;
+cin>>r;
+
+while(!fin.eof())
+{
+
+fin.read((char*)this,sizeof(hotel));
+if(room_no==r)
+{
+
+  system("cls");
+cout<<"\n Cusromer Details";
+cout<<"\n ----------------";
+cout<<"\n\n Room no: "<<room_no;
+cout<<"\n Name: "<<name;
+cout<<"\n Address: "<<address;
+cout<<"\n Phone no: "<<phone;
+flag=1;
+break;
+
+}
+
+}
+
+if(flag==0)
+cout<<"\n Sorry Room no. not found or vacant....!!";
+cout<<"\n\n Press any key to continue....!!";
+
+getch();
+fin.close();
+}
+
+
+//END OF DISPLAY FUNCTION
